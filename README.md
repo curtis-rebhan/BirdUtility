@@ -1,5 +1,7 @@
 # BirdUtility
 
+#The scene is located in flight/assets/scenes/Demo, or using Unity open the Flight folder to open the project
+
 #To add the functionality into an existing project, add the Bird.cs, PlayerBird.cs and AIBird.cs files to the project. 
 
 #To make a bird create an empty gameobject by right clicking in the hierarchy and click create empty.
