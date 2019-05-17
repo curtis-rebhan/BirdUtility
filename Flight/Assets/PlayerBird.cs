@@ -9,6 +9,7 @@ public class PlayerBird : Bird
     {
         base.Start();
         cam = GetComponentInChildren<Camera>();
+        cam.transform.localPosition = soaring ? new Vector3(0, 0.6f, -1.6f) : new Vector3(0, 1, -2.5f);
     }
     private void FixedUpdate()
     {
