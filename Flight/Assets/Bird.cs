@@ -5,10 +5,11 @@ using UnityEngine;
 public abstract class Bird : MonoBehaviour
 {
     protected Rigidbody rb;
-    protected float lift = 9, flapLift = 15, flapThrust = 15, maxVelocity = 145, LookSpeed = 1.0f;
+    protected float lift = 9f, flapLift = 15, flapThrust = 15, maxVelocity = 33, LookSpeed = 1.0f;
     protected float yawRot = 0;
     protected GameObject velocityMarker;
     protected bool soaring = false;
+    protected static PlayerBird Player;
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -21,24 +22,6 @@ public abstract class Bird : MonoBehaviour
         rb.drag = 0.8f;
         rb.angularDrag = 0.8f;
 
-        #region BirdModule
-        GameObject leftWing = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        GameObject rightWing = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        GameObject body = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        body.transform.SetParent(transform);
-        leftWing.transform.SetParent(transform);
-        rightWing.transform.SetParent(transform);
-
-        leftWing.transform.localScale = new Vector3(1, 0.1f, 0.73f);
-        rightWing.transform.localScale = new Vector3(1, 0.1f, 0.73f);
-        body.transform.localScale = new Vector3(0.08f, 0.19f, 0.14f);
-
-        leftWing.transform.localPosition = new Vector3(-0.6f, 0);
-        rightWing.transform.localPosition = new Vector3(0.6f, 0);
-        body.transform.localPosition = Vector3.zero;
-        #endregion
-        BoxCollider boxCollider = gameObject.AddComponent<BoxCollider>();
-        boxCollider.size = new Vector3(2.19f, 0.16f, 0.75f);
     }
 
     // Update is called once per frame
